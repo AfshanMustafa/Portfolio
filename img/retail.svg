@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="sans-serif"><rect width="1200" height="640" fill="#F3E3D6"/>
+<rect x="100" y="70" width="1000" height="500" rx="12" fill="#fff"/>
+<rect x="132" y="104" width="200" height="22" rx="6" fill="#14171F"/><rect x="900" y="104" width="170" height="30" rx="6" fill="#F3E3D6"/>
+<rect x="132" y="170" width="420" height="260" rx="8" fill="#F4F6FA"/>
+<rect x="168" y="330" width="56" height="70" rx="4" fill="#A5481C" opacity=".45"/><rect x="248" y="290" width="56" height="110" rx="4" fill="#A5481C" opacity=".6"/><rect x="328" y="250" width="56" height="150" rx="4" fill="#A5481C" opacity=".8"/><rect x="408" y="215" width="56" height="185" rx="4" fill="#A5481C"/><rect x="488" y="260" width="40" height="140" rx="4" fill="#A5481C" opacity=".7"/>
+<rect x="590" y="170" width="480" height="120" rx="8" fill="#F4F6FA"/><rect x="590" y="310" width="480" height="120" rx="8" fill="#F4F6FA"/>
+<polyline points="610,270 700,230 790,250 880,205 980,215 1050,190" fill="none" stroke="#A5481C" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="680" cy="370" r="40" fill="none" stroke="#A5481C" stroke-width="16"/><rect x="760" y="346" width="240" height="12" rx="6" fill="#CBD1DC"/><rect x="760" y="376" width="180" height="12" rx="6" fill="#CBD1DC"/>
+<rect x="132" y="456" width="938" height="24" rx="6" fill="#F4F6FA"/><rect x="132" y="496" width="938" height="24" rx="6" fill="#F4F6FA"/></svg>
