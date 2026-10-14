@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Provident Bank — IT Operations Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    /* ============================
+       PROVIDENT BANK THEME
+       ============================ */
+    :root {
+      --prov-blue-primary: #003A8F;
+      --prov-blue-dark: #002B66;
+      --prov-teal-accent: #00A3A1;
+      --prov-teal-soft: #E6F6F6;
+
+      --bg-page: #F4F7FB;
+      --bg-card: #FFFFFF;
+      --bg-hero: var(--prov-blue-primary);
+      --bg-hero-light: var(--prov-teal-accent);
+
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+
+      --border-subtle: #E2E8F0;
+      --accent: var(--prov-blue-primary);
+      --accent-soft: #E6EDFA;
+
+      --status-ok: #15803D;
+      --status-warn: #CA8A04;
+      --status-crit: #B91C1C;
+
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-soft: 0 16px 40px rgba(0, 58, 143, 0.18);
+      --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       HEADER
+       ============================ */
+    header {
+      background: #fff;
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .brand-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(
+        135deg,
+        var(--prov-blue-primary),
+        var(--prov-teal-accent)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .search {
+      flex: 1;
+      background: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    nav a.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ============================
+       LAYOUT
+       ============================ */
+    main {
+      max-width: 1200px;
+      margin: 24px auto 40px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 3fr 1.3fr;
+      gap: 24px;
+    }
+
+    /* ============================
+       HERO
+       ============================ */
+    .hero {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--bg-hero), var(--bg-hero-light));
+      color: #fff;
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero h1 {
+      margin: 0 0 6px;
+      font-size: 1.8rem;
+    }
+
+    .hero p {
+      margin: 0 0 14px;
+      color: #E6F0FF;
+      max-width: 520px;
+    }
+
+    .hero-badges span {
+      display: inline-block;
+      margin-right: 8px;
+      margin-top: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      font-size: 0.75rem;
+    }
+
+    /* ============================
+       CARDS
+       ============================ */
+    .section { margin-top: 24px; }
+
+    .section h2 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .section p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      margin: 8px 0 4px;
+    }
+
+    .card p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ============================
+       RIGHT PANEL
+       ============================ */
+    .side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .status-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .ok { background: #DCFCE7; color: var(--status-ok); }
+    .warn { background: #FEF3C7; color: var(--status-warn); }
+    .crit { background: #FEE2E2; color: var(--status-crit); }
+
+    /* ============================
+       RESPONSIVE
+       ============================ */
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-badge">PB</div>
+      Provident IT Ops
+    </div>
+
+    <input class="search" placeholder="Search systems, incidents, runbooks…" />
+
+    <nav>
+      <a class="active">Overview</a>
+      <a>Incidents</a>
+      <a>Changes</a>
+      <a>Runbooks</a>
+    </nav>
+
+    <div class="avatar">CTO</div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>IT Operations Overview</h1>
+    <p>
+      Real-time visibility into infrastructure, applications, data platforms,
+      and operational risk across Provident Bank.
+    </p>
+    <div class="hero-badges">
+      <span>99.96% Uptime (30d)</span>
+      <span>No Sev-1 Incidents</span>
+      <span>Change Freeze Enforced</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section">
+      <h2>Key Operational Views</h2>
+      <p>Primary dashboards used by IT and Operations leadership.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Service Health</h3>
+          <p>End-to-end system availability and performance.</p>
+          <button class="btn btn-primary">View</button>
+        </div>
+
+        <div class="card">
+          <h3>Incident Console</h3>
+          <p>Active incidents, ownership, and timelines.</p>
+          <button class="btn btn-primary">Open</button>
+        </div>
+
+        <div class="card">
+          <h3>Change Calendar</h3>
+          <p>Planned changes and risk windows.</p>
+          <button class="btn btn-primary">Review</button>
+        </div>
+
+        <div class="card">
+          <h3>Runbook Library</h3>
+          <p>Standardized operational procedures.</p>
+          <button class="btn btn-primary">Browse</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <h3>Current Status</h3>
+      <p><span class="status-pill ok">All Systems Operational</span></p>
+    </div>
+
+    <div class="card">
+      <h3>On-Call Coverage</h3>
+      <p>Primary: Platform Ops</p>
+      <p>Secondary: Data Engineering</p>
+    </div>
+
+    <div class="card">
+      <h3>Recent Incidents</h3>
+      <p>INC-3241 · Digital Login Delay <span class="status-pill ok">Resolved</span></p>
+      <p>INC-3237 · Batch SLA Risk <span class="status-pill warn">Monitoring</span></p>
+    </div>
+  </aside>
+
+</main>
+
+</body>
+</html>
