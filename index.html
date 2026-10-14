@@ -1,355 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Provident Bank — IT Operations Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio — Afshan Mustafa</title>
+<meta name="description" content="Afshan Mustafa — Lead Product Designer. Research-led enterprise applications with AI-powered workflows.">
 
-  <style>
-    /* ============================
-       PROVIDENT BANK THEME
-       ============================ */
-    :root {
-      --prov-blue-primary: #003A8F;
-      --prov-blue-dark: #002B66;
-      --prov-teal-accent: #00A3A1;
-      --prov-teal-soft: #E6F6F6;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{color:#0F62FE}
+html{scroll-behavior:smooth}
+a,.card,.thumb,.bit,h3,.ar{transition:filter .25s ease,color .2s ease,border-color .25s ease,background-color .2s ease,opacity .2s ease}
+a:focus-visible{outline:2px solid #0F62FE;outline-offset:3px}
+.ul{background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;padding-bottom:4px;transition:background-size .25s ease,color .2s ease}
+.ul:hover{background-size:100% 2px}
+.btn-p:hover{color:#FFFFFF;filter:brightness(1.1) drop-shadow(0 8px 16px rgba(15,98,254,.35))}
+.btn-g{transition:filter .25s ease,background-color .2s ease}
+.btn-g:hover{background-color:#F4F6FA !important;filter:drop-shadow(0 6px 12px rgba(20,23,31,.14))}
+.btn-p:active,.btn-g:active,.card:active{filter:brightness(.92)}
+.card:hover{filter:drop-shadow(0 14px 26px rgba(20,23,31,.14));border-color:#B8C2D6 !important}
+.pic img{transition:filter .25s ease}
+.card:hover .pic img{filter:brightness(1.04) saturate(1.06)}
+.card:hover .thumb{filter:brightness(.97)}
+.card:hover .bit{filter:drop-shadow(0 8px 12px rgba(20,23,31,.2))}
+.ar{opacity:.35}
+.card:hover .ar{opacity:1}
+.thumb{position:relative;overflow:hidden}
+.thumb::after{content:"Image slot: drop in screenshot";position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.92);color:#4A5160;font:500 12px Roboto,sans-serif}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+header,section{animation:fi .7s ease both}
+section:nth-of-type(2){animation-delay:.1s}section:nth-of-type(3){animation-delay:.2s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
+</style>
 
-      --bg-page: #F4F7FB;
-      --bg-card: #FFFFFF;
-      --bg-hero: var(--prov-blue-primary);
-      --bg-hero-light: var(--prov-teal-accent);
-
-      --text-main: #0F172A;
-      --text-muted: #64748B;
-
-      --border-subtle: #E2E8F0;
-      --accent: var(--prov-blue-primary);
-      --accent-soft: #E6EDFA;
-
-      --status-ok: #15803D;
-      --status-warn: #CA8A04;
-      --status-crit: #B91C1C;
-
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --shadow-soft: 0 16px 40px rgba(0, 58, 143, 0.18);
-      --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg-page);
-      color: var(--text-main);
-      line-height: 1.5;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* ============================
-       HEADER
-       ============================ */
-    header {
-      background: #fff;
-      padding: 14px 32px;
-      border-bottom: 1px solid var(--border-subtle);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .brand-badge {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: linear-gradient(
-        135deg,
-        var(--prov-blue-primary),
-        var(--prov-teal-accent)
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 13px;
-    }
-
-    .search {
-      flex: 1;
-      background: var(--bg-page);
-      border: 1px solid var(--border-subtle);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.9rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 16px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    nav a.active {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    /* ============================
-       LAYOUT
-       ============================ */
-    main {
-      max-width: 1200px;
-      margin: 24px auto 40px;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 3fr 1.3fr;
-      gap: 24px;
-    }
-
-    /* ============================
-       HERO
-       ============================ */
-    .hero {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, var(--bg-hero), var(--bg-hero-light));
-      color: #fff;
-      padding: 28px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero h1 {
-      margin: 0 0 6px;
-      font-size: 1.8rem;
-    }
-
-    .hero p {
-      margin: 0 0 14px;
-      color: #E6F0FF;
-      max-width: 520px;
-    }
-
-    .hero-badges span {
-      display: inline-block;
-      margin-right: 8px;
-      margin-top: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.15);
-      font-size: 0.75rem;
-    }
-
-    /* ============================
-       CARDS
-       ============================ */
-    .section { margin-top: 24px; }
-
-    .section h2 {
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .section p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .card h3 {
-      font-size: 0.9rem;
-      margin: 8px 0 4px;
-    }
-
-    .card p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .btn {
-      margin-top: 10px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    /* ============================
-       RIGHT PANEL
-       ============================ */
-    .side {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .status-pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      display: inline-block;
-    }
-
-    .ok { background: #DCFCE7; color: var(--status-ok); }
-    .warn { background: #FEF3C7; color: var(--status-warn); }
-    .crit { background: #FEE2E2; color: var(--status-crit); }
-
-    /* ============================
-       RESPONSIVE
-       ============================ */
-    @media (max-width: 900px) {
-      main { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      nav { display: none; }
-    }
-  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="brand-badge">PB</div>
-      Provident IT Ops
-    </div>
 
-    <input class="search" placeholder="Search systems, incidents, runbooks…" />
+<div style="width:100%;background:#FFFFFF;color:#14171F;font-family:Roboto,sans-serif;box-sizing:border-box">
 
-    <nav>
-      <a class="active">Overview</a>
-      <a>Incidents</a>
-      <a>Changes</a>
-      <a>Runbooks</a>
-    </nav>
-
-    <div class="avatar">CTO</div>
-  </div>
+<header style="max-width:1440px;margin:0 auto;padding:28px 64px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;box-sizing:border-box">
+<a class="ul" href="#top" style="font-size:18px;font-weight:700">Afshan Mustafa</a>
+<nav style="display:flex;flex-wrap:wrap;gap:32px;font-size:15px;font-weight:500;color:#4A5160">
+<a class="ul" href="#showcase">Showcase</a><a class="ul" href="#about">About</a><a class="ul" href="#experience">Experience</a><a class="ul" href="#contact">Contact</a>
+</nav>
 </header>
 
-<main>
+<section id="top" style="max-width:1440px;margin:0 auto;padding:96px 64px 112px;box-sizing:border-box">
+<p style="margin:0 0 24px;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0F62FE">Lead Product Designer · Enterprise Platforms</p>
+<h1 style="margin:0;max-width:1060px;font-size:84px;line-height:1.02;font-weight:900;letter-spacing:-.03em">Designing clarity into complex enterprise software.</h1>
+<p style="margin:32px 0 0;max-width:640px;font-size:20px;line-height:1.55;color:#4A5160">I design research-led enterprise applications with AI-powered workflows, tailoring each experience to the personas who depend on it.</p>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:16px">
+<a class="btn-p" href="#showcase" style="padding:16px 28px;border-radius:8px;background:#0F62FE;color:#FFFFFF;font-size:16px;font-weight:500">View showcase</a>
+<a class="btn-g" href="#contact" style="padding:16px 28px;border-radius:8px;border:1px solid #CBD1DC;font-size:16px;font-weight:500">Get in touch</a>
+</div>
+</section>
 
-  <section class="hero">
-    <h1>IT Operations Overview</h1>
-    <p>
-      Real-time visibility into infrastructure, applications, data platforms,
-      and operational risk across Provident Bank.
-    </p>
-    <div class="hero-badges">
-      <span>99.96% Uptime (30d)</span>
-      <span>No Sev-1 Incidents</span>
-      <span>Change Freeze Enforced</span>
-    </div>
-  </section>
+<section id="showcase" style="background:#F4F6FA;padding:96px 0;scroll-margin-top:24px">
+<div style="max-width:1440px;margin:0 auto;padding:0 64px;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;justify-content:space-between;margin-bottom:48px">
+<h2 style="margin:0;font-size:44px;font-weight:700;letter-spacing:-.02em">Showcase</h2>
+<span style="font-size:15px;color:#4A5160">Selected case studies</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:32px">
 
-  <section>
-    <div class="section">
-      <h2>Key Operational Views</h2>
-      <p>Primary dashboards used by IT and Operations leadership.</p>
+<a class="card" href="case-laundry-iq.html" style="display:block;background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:20px;box-sizing:border-box">
+<div class="pic" style="height:320px;border-radius:6px;overflow:hidden"><img src="img/laundry-iq.svg" alt="Laundry IQ mobile app screens" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<p style="margin:24px 0 8px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4A5160">Mobile · Web · MVP</p>
+<h3 style="margin:0 0 8px;font-size:28px;font-weight:700">Laundry IQ</h3>
+<p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">A mobile-first product for laundry teams, with stain scanning and AI product recommendations, built from persona journey maps for managers and workers.</p>
+<span style="display:inline-block;margin-top:20px;font-size:15px;font-weight:500">View case study <span class="ar">→</span></span>
+</a>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Service Health</h3>
-          <p>End-to-end system availability and performance.</p>
-          <button class="btn btn-primary">View</button>
-        </div>
+<a class="card" href="case-lodging-intelligence.html" style="display:block;background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:20px;box-sizing:border-box">
+<div class="pic" style="height:320px;border-radius:6px;overflow:hidden"><img src="img/lodging.svg" alt="Lodging Intelligence dashboard" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<p style="margin:24px 0 8px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4A5160">Dashboard · AI · With Accenture</p>
+<h3 style="margin:0 0 8px;font-size:28px;font-weight:700">Lodging Intelligence</h3>
+<p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">An AI-driven dashboard that turns fragmented operational signals into prioritized decisions for hotel general managers.</p>
+<span style="display:inline-block;margin-top:20px;font-size:15px;font-weight:500">View case study <span class="ar">→</span></span>
+</a>
 
-        <div class="card">
-          <h3>Incident Console</h3>
-          <p>Active incidents, ownership, and timelines.</p>
-          <button class="btn btn-primary">Open</button>
-        </div>
+<a class="card" href="case-retail-intelligence.html" style="display:block;background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:20px;box-sizing:border-box">
+<div class="pic" style="height:320px;border-radius:6px;overflow:hidden"><img src="img/retail.svg" alt="Retail Intelligence analytics view" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<p style="margin:24px 0 8px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4A5160">Retail · Analytics</p>
+<h3 style="margin:0 0 8px;font-size:28px;font-weight:700">Retail Intelligence</h3>
+<p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">Decision-ready analytics for retail partners, giving everyone from corporate leaders to store teams one clear view.</p>
+<span style="display:inline-block;margin-top:20px;font-size:15px;font-weight:500">View case study <span class="ar">→</span></span>
+</a>
 
-        <div class="card">
-          <h3>Change Calendar</h3>
-          <p>Planned changes and risk windows.</p>
-          <button class="btn btn-primary">Review</button>
-        </div>
+<a class="card" href="case-data-center.html" style="display:block;background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:20px;box-sizing:border-box">
+<div class="pic" style="height:320px;border-radius:6px;overflow:hidden"><img src="img/datacenter.svg" alt="Data center monitoring application" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<p style="margin:24px 0 8px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4A5160">Enterprise · Desktop</p>
+<h3 style="margin:0 0 8px;font-size:28px;font-weight:700">Data Center Applications</h3>
+<p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">Monitoring and management software that gives data center teams clear status and faster paths to action.</p>
+<span style="display:inline-block;margin-top:20px;font-size:15px;font-weight:500">View case study <span class="ar">→</span></span>
+</a>
 
-        <div class="card">
-          <h3>Runbook Library</h3>
-          <p>Standardized operational procedures.</p>
-          <button class="btn btn-primary">Browse</button>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
+</div>
+</section>
 
-  <aside class="side">
-    <div class="card">
-      <h3>Current Status</h3>
-      <p><span class="status-pill ok">All Systems Operational</span></p>
-    </div>
+<section id="about" style="max-width:1440px;margin:0 auto;padding:112px 64px;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:64px;align-items:start;scroll-margin-top:24px">
+<div class="pic" style="min-height:560px;border-radius:8px;background:#D0E2FF;display:flex;align-items:center;justify-content:center;font-size:160px;font-weight:900;letter-spacing:-.04em;color:#0F62FE" aria-label="Portrait of Afshan Mustafa">AM</div>
+<div>
+<p style="margin:0 0 16px;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#0F62FE">About</p>
+<h2 style="margin:0 0 32px;font-size:44px;line-height:1.1;font-weight:700;letter-spacing:-.02em">Research-led design for people who run on decisions.</h2>
+<div style="font-size:18px;line-height:1.65;color:#4A5160">
+<p style="margin:0 0 20px">I'm a Lead Product Designer focused on enterprise applications with AI-powered workflows. I research and design for many personas in one system, from corporate executives to frontline workers, and I build AI-driven experiences that feel like part of the tool, including conversational chat embedded in the workflow.</p>
+<p style="margin:0 0 40px">My path runs through IBM's CIO design team, 7-Eleven's mobile apps and enterprise operations platforms. Across all of it, I turn complicated, fragmented information into interfaces that are calm, clear and fast to act on.</p>
+</div>
+<h3 style="margin:0 0 20px;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#4A5160">How I work</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:28px;box-sizing:border-box"><h3 style="margin:0 0 8px;font-size:20px;font-weight:700">Start with the decision</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">Fragmented signals only matter once they become a clear, prioritized next step. I design the path from data to action.</p></div><div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:28px;box-sizing:border-box"><h3 style="margin:0 0 8px;font-size:20px;font-weight:700">Design for every persona</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">From corporate executives to frontline workers, each role gets its own journey, language and level of detail.</p></div><div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:28px;box-sizing:border-box"><h3 style="margin:0 0 8px;font-size:20px;font-weight:700">AI that fits the workflow</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">Recommendations, scanning and conversational help sit inside the tools people already use, not in a separate place.</p></div><div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:28px;box-sizing:border-box"><h3 style="margin:0 0 8px;font-size:20px;font-weight:700">Prototype to prove it</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#4A5160">Clickable prototypes and design-system-ready specs let teams test ideas early and build with confidence.</p></div>
+</div>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:16px"><a class="btn-p" href="#contact" style="padding:16px 28px;border-radius:8px;background:#0F62FE;color:#FFFFFF;font-size:16px;font-weight:500">Work with me</a></div>
+</div>
+</section>
 
-    <div class="card">
-      <h3>On-Call Coverage</h3>
-      <p>Primary: Platform Ops</p>
-      <p>Secondary: Data Engineering</p>
-    </div>
+<section id="experience" style="background:#F4F6FA;padding:96px 0;scroll-margin-top:24px">
+<div style="max-width:1440px;margin:0 auto;padding:0 64px;box-sizing:border-box">
+<h2 style="margin:0 0 48px;font-size:44px;font-weight:700;letter-spacing:-.02em">Experience</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+<div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:32px;box-sizing:border-box"><p style="margin:0 0 8px;font-size:14px;color:#4A5160">Present</p><h3 style="margin:0 0 8px;font-size:24px;font-weight:700">Ecolab</h3><p style="margin:0;font-size:16px;color:#4A5160">Lead Product Designer</p></div>
+<div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:32px;box-sizing:border-box"><p style="margin:0 0 8px;font-size:14px;color:#4A5160">Approx. 1 year</p><h3 style="margin:0 0 8px;font-size:24px;font-weight:700">7-Eleven</h3><p style="margin:0;font-size:16px;color:#4A5160">Senior UX Designer</p></div>
+<div class="card" style="background:#FFFFFF;border:1px solid #E1E5EC;border-radius:8px;padding:32px;box-sizing:border-box"><p style="margin:0 0 8px;font-size:14px;color:#4A5160">Approx. 6 years</p><h3 style="margin:0 0 8px;font-size:24px;font-weight:700">IBM</h3><p style="margin:0;font-size:16px;color:#4A5160">Product Designer, CIO design team</p></div>
+</div>
+</div>
+</section>
 
-    <div class="card">
-      <h3>Recent Incidents</h3>
-      <p>INC-3241 · Digital Login Delay <span class="status-pill ok">Resolved</span></p>
-      <p>INC-3237 · Batch SLA Risk <span class="status-pill warn">Monitoring</span></p>
-    </div>
-  </aside>
+<section id="contact" style="max-width:1440px;margin:0 auto;padding:128px 64px;box-sizing:border-box;scroll-margin-top:24px">
+<h2 style="margin:0;max-width:900px;font-size:64px;line-height:1.05;font-weight:900;letter-spacing:-.025em">Let's build something clear together.</h2>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:16px"><a class="btn-p" href="mailto:stashinbox@gmail.com" style="padding:16px 28px;border-radius:8px;background:#0F62FE;color:#FFFFFF;font-size:16px;font-weight:500">Email me</a><a class="btn-g" href="https://www.linkedin.com/in/afshan00/" style="padding:16px 28px;border-radius:8px;border:1px solid #CBD1DC;font-size:16px;font-weight:500">LinkedIn</a></div>
+<div style="margin-top:96px;padding-top:24px;border-top:1px solid #E1E5EC;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:14px;color:#4A5160"><span>© Afshan Mustafa</span><a class="ul" href="https://www.linkedin.com/in/afshan00/">LinkedIn</a></div>
+</section>
 
-</main>
+</div>
 
 </body>
 </html>
